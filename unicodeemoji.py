@@ -45,6 +45,11 @@ class UnicodeEmojiExtension(Extension):
         import os
         return os.path.join(os.path.dirname(__file__), name)
 
+    def _addAlternatives(self, data, field, code):
+        if field in data:
+            for f in data[field]:
+                self.emoji[code].add(f)
+
     def __init__(self, *args, **kwargs):
         super(UnicodeEmojiExtension, self).__init__(*args, **kwargs)
         # load the base dataset
@@ -64,23 +69,24 @@ class UnicodeEmojiExtension(Extension):
                     self.emoji[code].add(text)
                 else:
                     print('Unknown unicode in github set:', code, text)
-        # import emojione mapping set
+        # import emojione mapping set (v2 or v3)
         with open(self._dataFilePath('emojione.json'), 'r') as emojione:
             for k, v in json.loads(emojione.read()).items():
                 if 'unicode_alternates' in v and v['unicode_alternates']:
                     code = v['unicode_alternates'].upper().replace('-', ' ')
-                else:
+                elif 'unicode' in v:
                     code = v['unicode'].upper().replace('-', ' ')
+                else:
+                    code = k.upper().replace('-', ' ')
                 splitcode = self._cleanCodeList(code.split(' '))
                 code = self._joinCodeList(splitcode)
                 if code not in self.emoji:
                     self.emoji[code] = set()
                 self.emoji[code].add(v['shortname'])
-                for a in v['aliases']:
-                    self.emoji[code].add(a)
-                if 'aliases_ascii' in v:
-                    for a in v['aliases_ascii']:
-                        self.emoji[code].add(a)
+                self._addAlternatives(v, 'aliases', code)
+                self._addAlternatives(v, 'aliases_ascii', code)
+                self._addAlternatives(v, 'shortname_alternates', code)
+                self._addAlternatives(v, 'ascii', code)
         # reverse key <-> values for the actual task at hand now
         for k, emolist in self.emoji.items():
             for e in emolist:
