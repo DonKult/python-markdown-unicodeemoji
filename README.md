@@ -17,7 +17,7 @@ The extension requires various data files to function properly.
 These data files are *NOT* included in the repository, you may find
 them in other locations on the web:
 
-* *emoji-test.txt*: http://www.unicode.org/Public/emoji/4.0/emoji-test.txt
+* *emoji-test.txt*: http://www.unicode.org/Public/emoji/6.0/emoji-test.txt
 * *api-github-com-emojis.json*: https://api.github.com/emojis
 * *emojione.json*: https://github.com/Ranks/emojione/blob/master/emoji.json
 

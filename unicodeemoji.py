@@ -50,7 +50,7 @@ class UnicodeEmojiExtension(Extension):
         # load the base dataset
         with open(self._dataFilePath('emoji-test.txt'), 'r') as emojitest:
             for line in emojitest:
-                if '; keyboard  #' in line:
+                if '; keyboard  #' in line or '; fully-qualified     #' in line:
                     codelist = self._cleanCodeList(line.split(';')[0].strip().split(' '))
                     self.emoji[self._joinCodeList(codelist)] = set()
         # import the github mapping set
