@@ -101,6 +101,9 @@ class UnicodeEmojiExtension(Extension):
                         self.mapping[e] = k
                 else:
                     self.mapping[e] = k
+            # don't map digits to their emoji type by default
+            if len(k) == 4 and k[0:3] == '003':
+                continue
             code = ''.join(map(lambda u: chr(int(u, 16)), k.split(' ')))
             # add the code itself so that they are wrapped properly if they appear literal
             self.mapping[code] = k
