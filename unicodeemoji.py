@@ -93,7 +93,12 @@ class UnicodeEmojiExtension(Extension):
                 if e in self.mapping:
                     if self.mapping[e] == k:
                         continue
-                    print('Mapping already exists for', e, 'with', self.mapping[e], 'newly proposed value', k)
+                    if len(self.mapping[e]) >= len(k):
+                        print('Ignore less-specific mapping for', e, 'with', self.mapping[e], 'proposed value', k)
+                        continue
+                    else:
+                        print('Replace more-specific mapping for', e, 'with', self.mapping[e], 'new value', k)
+                        self.mapping[e] = k
                 else:
                     self.mapping[e] = k
             code = ''.join(map(lambda u: chr(int(u, 16)), k.split(' ')))
