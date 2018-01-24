@@ -33,7 +33,7 @@ class UnicodeEmojiExtension(Extension):
 
     # removing the unicode variant modifier
     def _cleanCodeList(self, codes):
-        return list(filter(lambda u: u not in ['FE0F'], codes))
+        return list(filter(lambda u: u not in ['FE0E', 'FE0F'], codes))
 
     def _joinCodeList(self, codes):
         code = ' '.join(codes)
@@ -136,11 +136,11 @@ class UnicodeEmojiPattern(Pattern):
             lie = etree.SubElement(ule, 'li')
             lie.text = str(len(self.extension.emoji.items())) + ' emojis with ' + str(len(self.extension.mapping.items())) + ' mappings'
             for k, v in self.extension.emoji.items():
-                code = ''.join(map(lambda u: chr(int(u, 16)), k.split(' ')))
+                code = ''.join(map(lambda u: chr(int(u, 16)), k.split(' ') + ['FE0E']))
                 self._createEmoji(etree.SubElement(ule, 'li'), ' '.join(v), k, code)
             return ule
         tcode = self.extension.mapping[m.group('emoji')]
-        ucode = ''.join(map(lambda u: chr(int(u, 16)), tcode.split(' ')))
+        ucode = ''.join(map(lambda u: chr(int(u, 16)), tcode.split(' ') + ['FE0E']))
         return self._createEmoji(etree.Element('span'), m.group('emoji'), tcode, ucode)
 
 
