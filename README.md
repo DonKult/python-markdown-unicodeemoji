@@ -17,7 +17,7 @@ The extension requires various data files to function properly.
 These data files are *NOT* included in the repository, you may find
 them in other locations on the web:
 
-* *emoji-test.txt*: http://www.unicode.org/Public/emoji/6.0/emoji-test.txt
+* *emoji-test.txt*: http://www.unicode.org/Public/emoji/11.0/emoji-test.txt
 * *api-github-com-emojis.json*: https://api.github.com/emojis
 * *emojione.json*: https://github.com/Ranks/emojione/blob/master/emoji.json
 
@@ -44,7 +44,7 @@ sets feel free to contact me to have them added.
 
 ## License
 
-    Copyright (C) 2016-2017  David Kalnischkies
+    Copyright (C) 2016-2018  David Kalnischkies
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
