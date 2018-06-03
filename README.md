@@ -31,9 +31,9 @@ to provide a hint via CSS:
 
 ```css
 .emoji {
-  font-family: "EmojiOne", "EmojiOne Mozilla", "Apple Color Emoji", "Segoe UI",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiSymbols",
-    "DejaVu Sans", "Symbola";
+  font-family: "Twemoji", "Twemoji Mozilla", "EmojiOne", "EmojiOne Mozilla",
+    "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji", "EmojiSymbols", "DejaVu Sans", "Symbola";
   /* avoid the splitting of multi-char unicodes */
   white-space: nowrap;
 }
@@ -65,8 +65,10 @@ sets feel free to contact me to have them added.
     SOFTWARE.
 
 
-Note that the "graphics" you see and the text strings they are replacing are
+Note that the "graphics" you see and the text strings they are replacing with are
 not part of this repository and might be covered by an entirely different
 license. If you are on Linux and are running Firefox the "graphics" you see are
-e.g. likely [EmojiOne](http://emojione.com/) released under [CC-BY
-4.0](https://creativecommons.org/licenses/by/4.0/).
+e.g. either a 2.x version of [EmojiOne](http://emojione.com/) released under
+[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) or in newer Firefox
+versions [Twemoji](https://twitter.github.io/twemoji/) also released under the
+[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
