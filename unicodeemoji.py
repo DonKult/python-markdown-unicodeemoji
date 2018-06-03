@@ -72,13 +72,16 @@ class UnicodeEmojiExtension(Extension):
         # import emojione mapping set (v2 or v3)
         with open(self._dataFilePath('emojione.json'), 'r') as emojione:
             for k, v in json.loads(emojione.read()).items():
-                if 'unicode_alternates' in v and v['unicode_alternates']:
-                    code = v['unicode_alternates'].upper().replace('-', ' ')
+                if 'code_points' in v and 'fully_qualified' in v['code_points']:
+                    code = v['code_points']['fully_qualified']
+                elif 'unicode_alternates' in v and v['unicode_alternates']:
+                    code = v['unicode_alternates']
                 elif 'unicode' in v:
-                    code = v['unicode'].upper().replace('-', ' ')
+                    code = v['unicode']
                 else:
-                    code = k.upper().replace('-', ' ')
-                splitcode = self._cleanCodeList(code.split(' '))
+                    code = k
+                code = code.upper().replace('-', ' ')
+                splitcode = self._cleanCodeList(code.upper().split(' '))
                 code = self._joinCodeList(splitcode)
                 if code not in self.emoji:
                     self.emoji[code] = set()
