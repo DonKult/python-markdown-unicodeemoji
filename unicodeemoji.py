@@ -74,7 +74,7 @@ class UnicodeEmojiExtension(Extension):
         # import emojione mapping set (v2 or v3)
         with open(self._dataFilePath('emojione.json'), 'r') as emojione:
             for k, v in json.loads(emojione.read()).items():
-                if 'code_points' in v and 'fully_qualified' in v['code_points']:
+                if 'code_points' in v and 'fully_qualified' in v['code_points'] and v['code_points']['fully_qualified']:
                     code = v['code_points']['fully_qualified']
                 elif 'unicode_alternates' in v and v['unicode_alternates']:
                     code = v['unicode_alternates']
