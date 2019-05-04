@@ -17,9 +17,10 @@ The extension requires various data files to function properly.
 These data files are *NOT* included in the repository, you may find
 them in other locations on the web:
 
-* *emoji-test.txt*: https://www.unicode.org/Public/emoji/11.0/emoji-test.txt
-* *api-github-com-emojis.json*: https://api.github.com/emojis
-* *emojione.json*: https://github.com/Ranks/emojione/blob/master/emoji.json
+* *emoji-test.txt*: <https://www.unicode.org/Public/emoji/12.0/emoji-test.txt>
+  or better yet `/usr/share/unicode/emoji/emoji-data.txt` (packaged in Debian in `unicode-data`)
+* *api-github-com-emojis.json*: <https://api.github.com/emojis>
+* *emojione.json*: <https://github.com/Ranks/emojione/blob/master/emoji.json>
 
 See their upstream sites for licensing details and how to use them "properly"
 as this extension isn't really using them properly. You have been warned.
@@ -44,7 +45,7 @@ sets feel free to contact me to have them added.
 
 ## License
 
-    Copyright (C) 2016-2018  David Kalnischkies
+    Copyright (C) 2016-2019  David Kalnischkies
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
