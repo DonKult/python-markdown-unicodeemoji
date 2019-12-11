@@ -20,7 +20,7 @@ them in other locations on the web:
 * *emoji-test.txt*: <https://www.unicode.org/Public/emoji/12.0/emoji-test.txt>
   or better yet `/usr/share/unicode/emoji/emoji-data.txt` (packaged in Debian in `unicode-data`)
 * *api-github-com-emojis.json*: <https://api.github.com/emojis>
-* *emojione.json*: <https://github.com/Ranks/emojione/blob/master/emoji.json>
+* *emoji.json*: <https://github.com/joypixels/emoji-toolkit/blob/master/emoji.json>
 
 See their upstream sites for licensing details and how to use them "properly"
 as this extension isn't really using them properly. You have been warned.
@@ -28,7 +28,8 @@ They are also the right place to report bugs if you miss a mapping (and have
 verified before that it isn't an error on my part that it is missing).
 
 To ensure a browser picks the right fonts for the emoji display it is recommended
-to provide a hint via CSS:
+to provide a hint via CSS (the created `span` tag wrapping unicode emoji gets the
+class `emoji` assigned for this purpose):
 
 ```css
 .emoji {
@@ -66,10 +67,12 @@ sets feel free to contact me to have them added.
     SOFTWARE.
 
 
-Note that the "graphics" you see and the text strings they are replacing with are
+Note that the "graphics" you see and the text strings they are replacing are
 not part of this repository and might be covered by an entirely different
-license. If you are on Linux and are running Firefox the "graphics" you see are
-e.g. either a 2.x version of [EmojiOne](http://emojione.com/) released under
-[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) or in newer Firefox
-versions [Twemoji](https://twitter.github.io/twemoji/) also released under the
-[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+license. The `emoji.json` dataset from [JoyPixels](https://joypixels.com/)
+(previously EmojiOne) is e.g. under the [MIT license](https://opensource.org/licenses/MIT).
+If you are on Linux and are running Firefox the "graphics" you see are
+e.g. likely a 2.x version of [JoyPixels](https://joypixels.com/) (previously EmojiOne)
+released under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) or in
+newer Firefox versions [Twemoji](https://twitter.github.io/twemoji/) also
+released under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).

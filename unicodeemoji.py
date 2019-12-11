@@ -71,9 +71,9 @@ class UnicodeEmojiExtension(Extension):
                     self.emoji[code].add(text)
                 else:
                     print('Unknown unicode in github set:', code, text)
-        # import emojione mapping set (v2 or v3)
-        with open(self._dataFilePath('emojione.json'), 'r') as emojione:
-            for k, v in json.loads(emojione.read()).items():
+        # import emojione/joypixels mapping set
+        with open(self._dataFilePath('emoji.json'), 'r') as joypixels:
+            for k, v in json.loads(joypixels.read()).items():
                 if 'code_points' in v and 'fully_qualified' in v['code_points'] and v['code_points']['fully_qualified']:
                     code = v['code_points']['fully_qualified']
                 elif 'unicode_alternates' in v and v['unicode_alternates']:
