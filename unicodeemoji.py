@@ -117,7 +117,7 @@ class UnicodeEmojiExtension(Extension):
     def extendMarkdown(self, md, md_globals):
         import re
         # an emoji should be surrounded by "whitespace"
-        RE = r'((?<=\s)|(?<=^))(?P<emoji>%s)(?=(\.|…|,|)(\s|$))' % '|'.join(map(re.escape, self.mapping.keys()))
+        RE = r'((?<=\s)|(?<=^))(?P<emoji>%s)(\ufe0f|\ufe0e|)(?=(\.|…|,|)(\s|$))' % '|'.join(map(re.escape, self.mapping.keys()))
         md.inlinePatterns['emoji'] = UnicodeEmojiPattern(RE, md, self)
 
 
@@ -141,11 +141,13 @@ class UnicodeEmojiPattern(Pattern):
             lie = etree.SubElement(ule, 'li')
             lie.text = str(len(self.extension.emoji.items())) + ' emojis with ' + str(len(self.extension.mapping.items())) + ' mappings'
             for k, v in self.extension.emoji.items():
-                code = ''.join(map(lambda u: chr(int(u, 16)), k.split(' ') + ['FE0E']))
-                self._createEmoji(etree.SubElement(ule, 'li'), ' '.join(v), k, code)
+                code = ''.join(map(lambda u: chr(int(u, 16)), k.split(' ')))
+                self._createEmoji(etree.SubElement(ule, 'li'), ' '.join(v), k, code + ' ' + code + '\ufe0e ' + code + '\ufe0f')
             return ule
         tcode = self.extension.mapping[m.group('emoji')]
-        ucode = ''.join(map(lambda u: chr(int(u, 16)), tcode.split(' ') + ['FE0E']))
+        ucode = ''.join(map(lambda u: chr(int(u, 16)), tcode.split(' ')))
+        if m.group(4):
+            ucode += m.group(4)
         return self._createEmoji(etree.Element('span'), m.group('emoji'), tcode, ucode)
 
 
