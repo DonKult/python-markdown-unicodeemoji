@@ -55,13 +55,13 @@ class UnicodeEmojiExtension(Extension):
     def __init__(self, *args, **kwargs):
         super(UnicodeEmojiExtension, self).__init__(*args, **kwargs)
         # load the base dataset
-        with open(self._dataFilePath('emoji-test.txt'), 'r') as emojitest:
+        with open(self._dataFilePath('emoji-test.txt'), 'r', encoding = 'utf8') as emojitest:
             for line in emojitest:
                 if '; keyboard  #' in line or '; fully-qualified     #' in line:
                     codelist = self._cleanCodeList(line.split(';')[0].strip().split(' '))
                     self.emoji[self._joinCodeList(codelist)] = set()
         # import the github mapping set
-        with open(self._dataFilePath('api-github-com-emojis.json'), 'r') as githubemoji:
+        with open(self._dataFilePath('api-github-com-emojis.json'), 'r', encoding = 'utf8') as githubemoji:
             for k, v in json.loads(githubemoji.read()).items():
                 text = ':' + k + ':'
                 code = v.split('/')[-1].split('.', 1)[0].upper().replace('-', ' ')
@@ -72,7 +72,7 @@ class UnicodeEmojiExtension(Extension):
                 else:
                     print('Unknown unicode in github set:', code, text)
         # import emojione/joypixels mapping set
-        with open(self._dataFilePath('emoji.json'), 'r') as joypixels:
+        with open(self._dataFilePath('emoji.json'), 'r', encoding = 'utf8') as joypixels:
             for k, v in json.loads(joypixels.read()).items():
                 if 'code_points' in v and 'fully_qualified' in v['code_points'] and v['code_points']['fully_qualified']:
                     code = v['code_points']['fully_qualified']
