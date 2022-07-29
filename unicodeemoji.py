@@ -119,7 +119,7 @@ class UnicodeEmojiExtension(Extension):
         import re
         # an emoji should be surrounded by "whitespace"
         RE = r'((?<=\s)|(?<=^))(?P<emoji>%s)(\ufe0f|\ufe0e|)(?=(\.|…|,|)(\s|$))' % '|'.join(map(re.escape, self.mapping.keys()))
-        md.inlinePatterns['emoji'] = UnicodeEmojiPattern(RE, md, self)
+        md.inlinePatterns.register(UnicodeEmojiPattern(RE, md, self), 'emoji', 10)
 
 
 class UnicodeEmojiPattern(Pattern):
