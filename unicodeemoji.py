@@ -115,7 +115,7 @@ class UnicodeEmojiExtension(Extension):
             self.mapping[code] = k
         self.mapping[':ALL_UNICODE_EMOJI:'] = set()
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         import re
         # an emoji should be surrounded by "whitespace"
         RE = r'((?<=\s)|(?<=^))(?P<emoji>%s)(\ufe0f|\ufe0e|)(?=(\.|…|,|)(\s|$))' % '|'.join(map(re.escape, self.mapping.keys()))
