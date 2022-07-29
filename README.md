@@ -17,10 +17,12 @@ The extension requires various data files to function properly.
 These data files are *NOT* included in the repository, you may find
 them in other locations on the web:
 
-* *emoji-test.txt*: <https://www.unicode.org/Public/emoji/12.0/emoji-test.txt>
+* *emoji-test.txt*: <https://www.unicode.org/Public/emoji/14.0/emoji-test.txt>
   or better yet `/usr/share/unicode/emoji/emoji-data.txt` (packaged in Debian in `unicode-data`)
 * *api-github-com-emojis.json*: <https://api.github.com/emojis>
-* *emoji.json*: <https://github.com/joypixels/emoji-toolkit/blob/master/emoji.json>
+* *emoji.json*: <https://github.com/joypixels/emoji-assets/blob/master/emoji.json>
+  or <https://github.com/joypixels/emoji-toolkit/blob/master/emoji.json>
+  (they are supposed to be the same, but are not always synced)
 
 See their upstream sites for licensing details and how to use them "properly"
 as this extension isn't really using them properly. You have been warned.
@@ -34,8 +36,9 @@ class `emoji` assigned for this purpose):
 ```css
 .emoji {
   font-family: "Twemoji", "Twemoji Mozilla", "EmojiOne", "EmojiOne Mozilla",
-    "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji", "EmojiSymbols", "DejaVu Sans", "Symbola";
+    "JoyPixels", "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji", "EmojiSymbols", "DejaVu Sans",
+    "Symbola";
   /* avoid the splitting of multi-char unicodes */
   white-space: nowrap;
 }
@@ -46,7 +49,7 @@ sets feel free to contact me to have them added.
 
 ## License
 
-    Copyright (C) 2016-2019  David Kalnischkies
+    Copyright (C) 2016-2022  David Kalnischkies
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -72,7 +75,8 @@ not part of this repository and might be covered by an entirely different
 license. The `emoji.json` dataset from [JoyPixels](https://joypixels.com/)
 (previously EmojiOne) is e.g. under the [MIT license](https://opensource.org/licenses/MIT).
 If you are on Linux and are running Firefox the "graphics" you see are
-e.g. likely a 2.x version of [JoyPixels](https://joypixels.com/) (previously EmojiOne)
-released under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) or in
-newer Firefox versions [Twemoji](https://twitter.github.io/twemoji/) also
+e.g. likely [Twemoji](https://twitter.github.io/twemoji/)
 released under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+In earlier versions this was an early [JoyPixels](https://joypixels.com/)
+(back than EmojiOne) released also under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/),
+but newer versions have a proprietary license.

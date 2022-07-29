@@ -14,8 +14,9 @@ setting specific font(s).
 ```css
 .emoji {
   font-family: "Twemoji", "Twemoji Mozilla", "EmojiOne", "EmojiOne Mozilla",
-    "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji", "EmojiSymbols", "DejaVu Sans", "Symbola";
+    "JoyPixels", "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji", "EmojiSymbols", "DejaVu Sans",
+    "Symbola";
   /* avoid the splitting of multi-char unicodes */
   white-space: nowrap;
 }
