@@ -23,10 +23,11 @@ setting specific font(s).
 
 """
 from markdown import Extension
-from markdown.util import etree, AtomicString
+from markdown.util import AtomicString
 from markdown.inlinepatterns import Pattern
 import json
 import string
+import xml.etree.ElementTree as etree
 
 
 class UnicodeEmojiExtension(Extension):
